@@ -15,21 +15,18 @@ class Buscador:
     def buscar(self, consulta):
         terminos = consulta.split()
         resultados_parciales = [set(self.indice_invertido.get(termino, [])) for termino in terminos]
-
         if not all(resultados_parciales):
             return []
-
         resultado_final = self.intersectar_listas(resultados_parciales)
         return resultado_final
 
     def intersectar_listas(self, listas, indice=0):
         if indice == len(listas) - 1:
             return listas[indice]
-
         interseccion_actual = listas[indice].intersection(self.intersectar_listas(listas, indice + 1))
         return interseccion_actual
 
-    def buscar_y_guardar(self, consulta, ruta_salida):
+    def guardar(self, consulta, ruta_salida):
         resultados = self.buscar(consulta)
         with open(ruta_salida, 'w') as archivo_salida:
             if resultados:
@@ -43,23 +40,22 @@ class Buscador:
 if __name__ == "__main__":
     # Crear un objeto Buscador
     buscador = Buscador(indice_invertido={})
-    # Cargar el índice invertido desde el archivo lista_invertida.txt
+    # Cargar el índice invertido
     buscador.cargar_indice('indice_invertido.txt')
-    # Ruta del archivo de entrada para la consulta
+    # Archivos de entrada y salida
     ruta_consulta = "consulta.txt"
     with open(ruta_consulta, 'r') as archivo_consulta:
         consulta = archivo_consulta.read().strip()
+    ruta_salida = "resultados_busqueda.txt"
     # Realizar la búsqueda
     resultados = buscador.buscar(consulta)
-    # Ruta del archivo de salida
-    ruta_salida = "resultados_busqueda.txt"
-    # Realizar la búsqueda y guardar resultados
-    buscador.buscar_y_guardar(consulta, ruta_salida)
-    # Imprimir los resultados
+    # Guardar los resultados
+    buscador.guardar(consulta, ruta_salida)
+    # Mostrar los resultados
     if resultados:
         print("Resultados de la búsqueda:")
         for url in resultados:
             print(url)
     else:
-        print("No se encontraron resultados para la consulta.")
+        print("No se encontraron resultados.")
 
