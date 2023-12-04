@@ -66,7 +66,3 @@ el resto es el contenido de la página.
 
       python3 busqueda.py
 * Esto generará como salida un archivo llamado **resultados_busqueda.txt** y se mostrará también por la terminal.
-
-  Salida:
-  
-      h
