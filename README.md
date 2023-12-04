@@ -39,7 +39,7 @@ el resto es el contenido de la página.
 
       awk -f list.awk final_data.txt > indice_invertido.txt
 
-    Esto generará un archivo en el cual cada término está asociada a su url
+    Esto generará un archivo llamado **indice_invertido.txt** en el cual cada término está asociada a su url
 
     Salida:
 
@@ -65,6 +65,8 @@ el resto es el contenido de la página.
 * Ejecutar el script de búsqueda
 
       python3 busqueda.py
-  
+* Esto generará como salida un archivo llamado **indice_invertido.txt** y se mostrará también por la terminal.
+
   Salida:
+  
       h
