@@ -54,7 +54,7 @@ el resto es el contenido de la página.
   
 2) Eliminar stopwords
 
-* Con este script de python se eliminarán todas las stopwords de la lista y mostrará por la terminal las palabras que se eliminaron
+* Con este script de python se eliminarán todas las stopwords de la lista y mostrará por la terminal las palabras que se eliminaron. Este archivo se guardará en un nuevo directorio llamado **stopwords**
 
        python3 stopwords.py
    
@@ -65,7 +65,7 @@ el resto es el contenido de la página.
 * Ejecutar el script de búsqueda
 
       python3 busqueda.py
-* Esto generará como salida un archivo llamado **indice_invertido.txt** y se mostrará también por la terminal.
+* Esto generará como salida un archivo llamado **resultados_busqueda.txt** y se mostrará también por la terminal.
 
   Salida:
   
